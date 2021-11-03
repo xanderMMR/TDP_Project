@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetButtonDown("Jump"))
         {   
 
             Jump();
@@ -79,7 +79,9 @@ public class PlayerController : MonoBehaviour
     bool IsTouchingTheGround()
     {   //this.position = desde la posición desde donde hasta donde quiero trazar el rayo (down) 
         if (Physics2D.Raycast(this.transform.position, Vector2.down, distanceRay,groundMask))
-        {
+        {       
+            //GameManager.sharedInstance.currentGameState = GameManager.GameState.inGame;
+            
             return true;
         }
         else
