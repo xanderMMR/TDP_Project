@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 6f;
     private float distanceRay = 1f;
     public float runningSpeed = 2f;
+    Vector3 startPosition;
     private Rigidbody2D rigidBody;
     //Ahora para agregarle animación al personaje dependiendo de su estado
     Animator animator;
@@ -22,14 +23,23 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     // Start is called before the first frame update
     void Start()    
+    {   
+
+        startPosition = this.transform.position;
+    }
+
+    public void StartGame()
     {   //Cuando empezamos a jugar el jugador no estará en el suelo
         animator.SetBool(STATE_ON_THE_GROUND, false);
-        animator.SetBool(STATE_IS_WALKING, false);
-
+        animator.SetBool(STATE_IS_WALKING, false); 
+        this.transform.position = startPosition;
+        //Esto se pone para que la velocidad sea igual a la de la inicial
+        this.rigidBody.velocity = Vector2.zero;
     }
 
     // Update is called once per frame

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState = GameState.menu;
     public static GameManager sharedInstance;
 
+    private PlayerController controller;
     private void Awake()
     {   
         if (sharedInstance ==null) sharedInstance = this;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        controller = GameObject.Find("Player").GetComponent<PlayerController>();
         
     }
 
@@ -38,11 +40,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && currentGameState != GameState.inGame)
         {
             StartGame();
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.P) )
         {
             BackToMenu(); 
         }
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.inGame)
         {
-
+            controller.StartGame(); 
         } 
         else if (newGameState == GameState.gameOver)
         {
