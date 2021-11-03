@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {   
 
             Jump();
@@ -45,28 +45,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {    /*
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            rigidBody.GetComponent<SpriteRenderer>().flipX = true;
-            
-            //Esto es para que camine en pantalla 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                rigidBody.velocity = new Vector2(-runningSpeed, rigidBody.velocity.y);
-            }
-        }
-        else if (Input.GetAxis("Horizontal")>0)
-        {
-            rigidBody.GetComponent<SpriteRenderer>().flipX = false;
-            
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                rigidBody.velocity = new Vector2(runningSpeed, rigidBody.velocity.y);
-            }
-        }
-        */
-        
+    {           
         if (Input.GetKey(KeyCode.RightArrow))
         {   //Para la direccion de la animacion
             rigidBody.GetComponent<SpriteRenderer>().flipX = false;
