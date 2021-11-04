@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     //Ahora para agregarle animación al personaje dependiendo de su estado
     Animator animator;
 
+    //Para el sonido
+    public AudioSource clip;
+
     //Necesito referenciar las variables booleanas que he creado en Unity (IsOnTheGround)
 
     private const string STATE_ON_THE_GROUND = "IsOnTheGround";
@@ -82,7 +85,14 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         animator.SetBool(STATE_IS_WALKING, false);
-        if (IsTouchingTheGround()) rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+        if (IsTouchingTheGround())
+        {
+            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            GetComponent<AudioSource>().Play();
+        }
+
+    
     }
     // Para esto debo crear un nuevo Layer llamado Ground para todas las plataformas
     //Esto nos va a servir para que el salto no se haga consecutivo
@@ -93,6 +103,7 @@ public class PlayerController : MonoBehaviour
             //GameManager.sharedInstance.currentGameState = GameManager.GameState.inGame;
             
             return true;
+            
         }
         else
         {
