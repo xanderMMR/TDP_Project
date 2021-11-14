@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody;
     //Ahora para agregarle animación al personaje dependiendo de su estado
     Animator animator;
-
+    //private  TimeController timeController;
     //Para el sonido
     public AudioSource clip;
 
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     {
       
         startPosition = this.transform.position;
+        //timeController = GameObject.Find("TimeController").GetComponent<TimeController>();
+
     }
 
     public void StartGame()
@@ -113,10 +115,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Incorrect"))
+        if (collision.tag == "Incorrect")
         {
             print("Colision - Disminuye el tiempo");
-           //TimeController.sharedInstance.restante -= 5;
+            TimeController.timeController.disminucion(5);
         }
         else if (collision.CompareTag("Correct"))
         {
@@ -125,7 +127,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.CompareTag("Coin"))
         {
             print("Colision - Aumenta el tiempo");
-            
+            TimeController.timeController.restante += 10;
         }
     }
 
