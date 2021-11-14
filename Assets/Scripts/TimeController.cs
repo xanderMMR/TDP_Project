@@ -7,8 +7,8 @@ public class TimeController : MonoBehaviour
 {
     [SerializeField] int min, seg;
     [SerializeField] Text tiempo;
-
-    private float restante;
+    public static TimeController sharedInstance;
+    public float restante;
     private bool enMarcha;
 
     void Awake()
@@ -23,10 +23,10 @@ public class TimeController : MonoBehaviour
         if (enMarcha)
         {
             restante -= Time.deltaTime;
-            if (restante < 1)
+            if (restante <= 0.5)
             {
                 enMarcha = true;
-                // matar al jugador
+                GameManager.sharedInstance.currentGameState = GameManager.GameState.gameOver;
             }
             int tempMin = Mathf.FloorToInt(restante / 60);
             int tempSeg = Mathf.FloorToInt(restante % 60);
@@ -34,4 +34,5 @@ public class TimeController : MonoBehaviour
 
         }
     }
+   
 }

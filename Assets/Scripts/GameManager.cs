@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
         else if (currentGameState == GameState.menu)  {
             Time.timeScale = 0f;
         }
+        else if (currentGameState == GameState.gameOver){
+            Time.timeScale = 0f;
+        }
 
         if (Input.GetKeyDown(KeyCode.S) && currentGameState != GameState.inGame)
         {

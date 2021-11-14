@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coin
   - Block
+  - Correct
+  - Incorrect
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private const string STATE_ON_THE_GROUND = "IsOnTheGround";
     private const string STATE_IS_WALKING = "IsWalking";
-
+    
     public LayerMask groundMask;
     void Awake()
     {
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()    
-    {   
-
+    {
+      
         startPosition = this.transform.position;
     }
 
@@ -110,5 +110,24 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Incorrect"))
+        {
+            print("Colision - Disminuye el tiempo");
+           //TimeController.sharedInstance.restante -= 5;
+        }
+        else if (collision.CompareTag("Correct"))
+        {
+            print("Colision - Gano el juego");
+        }
+        else if (collision.CompareTag("Coin"))
+        {
+            print("Colision - Aumenta el tiempo");
+            
+        }
+    }
+
 
 }

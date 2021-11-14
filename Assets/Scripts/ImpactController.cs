@@ -12,6 +12,7 @@ public class ImpactController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GetComponent<AudioSource>().Play(); 
+            
         }
     }
 }
