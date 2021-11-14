@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {   //Poner los estados del juego
 
+   
     public enum GameState
     {
         menu,
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         if (currentGameState == GameState.inGame)
         {
             Time.timeScale = 1f;
+           
         }
         else if (currentGameState == GameState.menu)  {
             Time.timeScale = 0f;
@@ -79,4 +81,5 @@ public class GameManager : MonoBehaviour
         }
         this.currentGameState = newGameState;
     }
+
 }
