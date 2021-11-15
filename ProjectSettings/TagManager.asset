@@ -8,7 +8,6 @@ TagManager:
   - Block
   - Correct
   - Incorrect
-  - TimeController
   layers:
   - Default
   - TransparentFX

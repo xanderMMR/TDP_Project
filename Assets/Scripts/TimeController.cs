@@ -5,17 +5,14 @@ using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
-  
-
     [SerializeField] int min, seg;
     [SerializeField] Text tiempo;
-    public static TimeController timeController;
+    public static TimeController sharedInstance;
     public float restante;
     private bool enMarcha;
-   
+
     void Awake()
     {
-        if (timeController == null) timeController = this;
         restante = (min * 60) + seg;
         enMarcha = true;
     }
@@ -37,15 +34,5 @@ public class TimeController : MonoBehaviour
 
         }
     }
-
-    public void disminucion (float a)
-    {
-        restante = restante - a;
-    }
-    public void aumento (float a)
-    {
-        restante = restante + a;
-    }
-    
-
+   
 }
