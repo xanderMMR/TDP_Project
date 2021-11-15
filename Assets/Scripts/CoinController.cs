@@ -10,6 +10,7 @@ public class CoinController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
+            CoinContController.coinContController.cont += 1;
         }
     }
 }
