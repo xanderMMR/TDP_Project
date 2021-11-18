@@ -328,3 +328,4 @@ Received Import Request.
 Start importing Assets/FreeButtonSet/Textures using Guid(01430914042f894489285ea62a14b761) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b949b909a2d7723bf944ea908bda3ef6') in 0.017875 seconds 
   Import took 0.047599 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
