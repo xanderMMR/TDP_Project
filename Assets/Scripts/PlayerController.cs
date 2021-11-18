@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //Variables del movimiento del personaje
@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.CompareTag("Correct"))
         {
+            SceneManager.LoadScene("Level_2", LoadSceneMode.Single);
             print("Colision - Gano el juego");
         }
         else if (collision.CompareTag("Coin"))

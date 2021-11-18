@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         if (sharedInstance ==null) sharedInstance = this;
     }
 
+
+    
     void Start()
     {
         controller = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -36,13 +38,15 @@ public class GameManager : MonoBehaviour
         if (currentGameState == GameState.inGame)
         {
             Time.timeScale = 1f;
-           
+            AudioController.sharedInstance.audio.mute = false;
         }
         else if (currentGameState == GameState.menu)  {
             Time.timeScale = 0f;
+            AudioController.sharedInstance.audio.mute = true;
         }
         else if (currentGameState == GameState.gameOver){
             Time.timeScale = 0f;
+            
         }
 
         if (Input.GetKeyDown(KeyCode.S) && currentGameState != GameState.inGame)
