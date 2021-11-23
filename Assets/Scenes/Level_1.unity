@@ -210,6 +210,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5467436962076811884, guid: a14de537ddde285499b31c7cc1d9327c, type: 3}
+      propertyPath: m_TagString
+      value: Incorrect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467436962331624652, guid: a14de537ddde285499b31c7cc1d9327c, type: 3}
+      propertyPath: m_TagString
+      value: Incorrect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467436962880241044, guid: a14de537ddde285499b31c7cc1d9327c, type: 3}
+      propertyPath: m_TagString
+      value: Incorrect
+      objectReference: {fileID: 0}
     - target: {fileID: 5467436963767156542, guid: a14de537ddde285499b31c7cc1d9327c, type: 3}
       propertyPath: m_TagString
       value: Correct
