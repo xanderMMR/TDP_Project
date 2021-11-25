@@ -38,11 +38,11 @@ public class GameManager : MonoBehaviour
         if (currentGameState == GameState.inGame)
         {
             Time.timeScale = 1f;
-            AudioController.sharedInstance.audio.mute = false;
+            AudioController.au.mute = false;
         }
         else if (currentGameState == GameState.menu)  {
             Time.timeScale = 0f;
-            AudioController.sharedInstance.audio.mute = true;
+            AudioController.au.mute = true;
         }
         else if (currentGameState == GameState.gameOver){
             Time.timeScale = 0f;

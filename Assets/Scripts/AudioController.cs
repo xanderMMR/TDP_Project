@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource audio;
+    public static AudioSource au;
     public static AudioController sharedInstance;
     // Start is called before the first frame update
+    public static AudioClip coinPickUp;
+
+    private void Start()
+    {
+        coinPickUp = Resources.Load<AudioClip>("Coin_sound");
+        au = GetComponent<AudioSource>();
+        au.mute = true;
+    }
     private void Awake()
     {
         if (sharedInstance == null) sharedInstance = this;
     }
-    void Start()
-
+    public static void PlaySound(string clip)
     {
-        audio = GetComponent<AudioSource>();
-        audio.mute = true;
+        switch (clip) { 
+            case "Coin_sound":
+                au.PlayOneShot(coinPickUp);
+                break;
+        
+                    }
     }
 
-  
+
 }

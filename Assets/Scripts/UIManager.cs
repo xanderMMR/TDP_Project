@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public GameObject optionsPanel;
-
+    public GameObject nextLevel;
+    public static UIManager sharedInstance;
     private void Awake()
     {
+        if (sharedInstance == null) sharedInstance = this;
         optionsPanel.gameObject.SetActive(false);
+        nextLevel.gameObject.SetActive(false);
     }
     public void OptionPanel()
     {
@@ -26,10 +29,28 @@ public class UIManager : MonoBehaviour
     }
     public void GoMainMenu()
     {
-
+        //TODO Menu principal
     }
     public void QuitGame()
     {
-        Application.Quit();  
+        Application.Quit();
     }
+    public void NextLevelUI()
+    {
+        nextLevel.SetActive(true);
+        GameManager.sharedInstance.currentGameState = GameManager.GameState.menu;
+
+    }
+    public void NextLevel()
+    {
+        if (Application.loadedLevelName == "Level_1") SceneManager.LoadScene("Level_2", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_2") SceneManager.LoadScene("Level_3", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_3") SceneManager.LoadScene("Level_4", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_4") SceneManager.LoadScene("Level_5", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_5") SceneManager.LoadScene("Level_6", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_6") SceneManager.LoadScene("Level_7", LoadSceneMode.Single);
+        else if (Application.loadedLevelName == "Level_7") SceneManager.LoadScene("Level_8", LoadSceneMode.Single);
+        //print("Colision - Gano el juego");
+    }
+   
 }
